@@ -8,7 +8,7 @@ using TesteSquadra.Interface;
 
 namespace TesteSquadra.Controllers
 {
-    
+
     public class CalcularJurosController : ControllerBase
     {
         private readonly ICalcularJuros _ServicoCalcularJuros;
@@ -20,7 +20,8 @@ namespace TesteSquadra.Controllers
             _ServicoTaxaJuros = ServicoTaxajuros;
         }
 
-        [HttpGet, Route("CalculaJuros/{valorInicial:decimal}/{meses:int}")]
+        [Route("CalculaJuros")]
+
         public decimal Get(decimal valorInicial, int meses)
         {
             decimal taxaJuros = _ServicoTaxaJuros.RetornaTaxaJuros();
@@ -35,7 +36,8 @@ namespace TesteSquadra.Controllers
         //    return _ServicoCalcularJuros.RetornaCalcularJuros(valorInicial, meses, taxaJuros);
         //}
 
-        [HttpGet, Route("showmethecode")]
+        [Route("showmethecode")]
+        [HttpGet]
         public object ShowMeTheCode()
         {
 
